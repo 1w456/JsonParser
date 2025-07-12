@@ -1,0 +1,3 @@
+D:/code/JsonParser/build/CMakeFiles/JsonParser.dir
+D:/code/JsonParser/build/CMakeFiles/edit_cache.dir
+D:/code/JsonParser/build/CMakeFiles/rebuild_cache.dir
