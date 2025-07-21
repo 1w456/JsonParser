@@ -16,6 +16,7 @@
 namespace JObject {
     // 前置声明JsonObject类，避免循环引用
     class JsonObject;
+    std::ostream& operator<<(std::ostream& os, const JsonObject& obj);
     // 使用联合体表示json支持的6种值类型
     union Value {
         bool V_NULL;
@@ -56,6 +57,10 @@ namespace JObject {
         JsonObject(const JsonObject& other);
         ~JsonObject() { clear(); }
         void clear();
+        JsonObject& operator[](const std::string& key) const;
+        JsonObject& operator[](const int& index) const;
+        void erase(const std::string& key);
+        void erase(const int& index);
         std::string getString() const;
         std::string toString() const;
         void out_to_file(const std::string& file_path, bool is_format = true);

@@ -76,6 +76,39 @@ void JsonObject::clear() {
     value.V_NULL = true;
 }
 
+JsonObject& JsonObject::operator[](const std::string& key) const {
+    if (type == ValueType::T_object) {
+        return value.V_object->at(key);  // 传入的key必须存在，否则抛出异常
+    } else {
+        throw std::runtime_error("not an object");
+    }
+}
+JsonObject& JsonObject::operator[](const int& index) const {
+    if (type == ValueType::T_array) {
+        return value.V_array->at(index);  // 传入的index必须存在，否则抛出异常
+    } else {
+        throw std::runtime_error("not an array");
+    }
+}
+std::ostream& JObject::operator<<(std::ostream& os, const JsonObject& obj) {
+    os << obj.toString();
+    return os;
+}
+void JsonObject::erase(const std::string& key) {
+    if (type == ValueType::T_object) {
+        value.V_object->erase(key);
+    } else {
+        throw std::runtime_error("not an object");
+    }
+}
+void JsonObject::erase(const int& index) {
+    if (type == ValueType::T_array) {
+        value.V_array->erase(value.V_array->begin() + index);
+    } else {
+        throw std::runtime_error("not an array");
+    }
+}
+
 std::string JsonObject::toString() const {
     std::string res;
     switch (type) {

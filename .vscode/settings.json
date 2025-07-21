@@ -61,5 +61,5 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "files.encoding": "utf8",
-    "C_Cpp.clang_format_style": "file:D:/code/vsc_settings/.clang-format"
+    "C_Cpp.clang_format_style": "file:D:/code/aa_workspace/vsc_settings/.clang-format"
 }

@@ -17,8 +17,9 @@ int main() {
         JsonParser::KJson Parser(file_input);
         try {
             JsonObject obj(Parser.parse());
-            std::cout << obj.toString() << std::endl;
+            std::cout << obj << std::endl;
             obj.out_to_file(file_output);
+            std::cout << obj["cityInfo"] << std::endl;
             obj.clear();
         } catch (std::exception& e) {
             std::cout << "Error: " << e.what() << std::endl;
